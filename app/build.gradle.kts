@@ -2,6 +2,9 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.ktorfit)
+    alias(libs.plugins.kotlinx.serialization)
 }
 
 android {
@@ -48,15 +51,35 @@ android {
 }
 
 dependencies {
-
     implementation(libs.core.ktx)
-    implementation(libs.lifecycle.runtime.ktx)
+    implementation(libs.lifecycle.viewmodel.compose)
     implementation(libs.activity.compose)
     implementation(platform(libs.compose.bom))
     implementation(libs.ui)
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
+    implementation(libs.compose.navigation)
+
+    implementation(libs.hilt.android)
+    implementation(libs.hilt.navigation.compose)
+    ksp(libs.hilt.android.compiler)
+
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
+
+    implementation(libs.camerax.core)
+    implementation(libs.camerax.camera2)
+    implementation(libs.camerax.view)
+    implementation(libs.camerax.lifecycle)
+
+    implementation(libs.ktor.client.serialization)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.serializations.kotlinx.json)
+    implementation(libs.ktorfit)
+    ksp(libs.ktorfit.compiler)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -64,4 +87,7 @@ dependencies {
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
+
+    implementation(libs.pytorch.android.lite)
+    implementation(libs.pytorch.android.torchvision)
 }
