@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">BlossomBuddy</string>
+    <string name="permission_dialog_go_to_app_settings_label">Go to app settings</string>
+    <string name="permission_dialog_ok_label">Ok</string>
+    <string name="permission_dialog_dismiss_label">Cancel</string>
+    <string name="permission_dialog_title">%1$s Access Needed</string>
 </resources>
