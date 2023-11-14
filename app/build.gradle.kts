@@ -13,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId = "com.painandpanic.blossombuddy"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -59,11 +59,12 @@ dependencies {
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
+    implementation(libs.material.icons.extended)
     implementation(libs.compose.navigation)
+    implementation(libs.constraintlayout.compose)
 
-    implementation(libs.hilt.android)
-    implementation(libs.hilt.navigation.compose)
-    ksp(libs.hilt.android.compiler)
+    implementation(libs.koin.android)
+    implementation(libs.koin.compose)
 
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
@@ -79,6 +80,15 @@ dependencies {
     implementation(libs.ktor.serializations.kotlinx.json)
     implementation(libs.ktorfit)
     ksp(libs.ktorfit.compiler)
+
+    implementation(libs.koin.core)
+    implementation(libs.koin.android)
+    implementation(libs.koin.compose)
+    implementation(libs.koin.compose.navigation)
+
+    implementation(libs.coil.compose)
+
+    implementation(libs.accompanist.permissions)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

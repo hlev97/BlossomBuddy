@@ -4,4 +4,116 @@
     <string name="permission_dialog_ok_label">Ok</string>
     <string name="permission_dialog_dismiss_label">Cancel</string>
     <string name="permission_dialog_title">%1$s Access Needed</string>
+    <string-array name="flower_names">
+        <item>Pink primrose</item>
+        <item>Hard-leaved pocket orchid</item>
+        <item>Canary island date palm</item>
+        <item>Common dandelion</item>
+        <item>Bird of paradise</item>
+        <item>Monkshood</item>
+        <item>Globe thistle</item>
+        <item>Grape hyacinth</item>
+        <item>Corn poppy</item>
+        <item>Prince of wales feathers</item>
+        <item>Stemless gentian</item>
+        <item>Red ginger</item>
+        <item>Spring crocus</item>
+        <item>Orange dahlia</item>
+        <item>Pink-yellow dahlia</item>
+        <item>Cauliflower</item>
+        <item>Sweet william</item>
+        <item>Cactus</item>
+        <item>Big masterwort</item>
+        <item>Siam tulip</item>
+        <item>Lenten rose</item>
+        <item>Barbados aloe</item>
+        <item>Red hot poker</item>
+        <item>Artichoke</item>
+        <item>Sweet pea</item>
+        <item>English marigold</item>
+        <item>Tiger lily</item>
+        <item>Moon orchid</item>
+        <item>Bird of paradise</item>
+        <item>Monkshood</item>
+        <item>Globe thistle</item>
+        <item>Grape hyacinth</item>
+        <item>Wild pansy</item>
+        <item>Primula</item>
+        <item>Sunflower</item>
+        <item>Pelargonium</item>
+        <item>Bishop of llandaff</item>
+        <item>Gaura</item>
+        <item>Gazania</item>
+        <item>Geranium</item>
+        <item>Orange dahlia</item>
+        <item>Pink-yellow dahlia</item>
+        <item>Fritillary</item>
+        <item>Common dandelion</item>
+        <item>Pincushion flower</item>
+        <item>Fuchsia</item>
+        <item>Mallow</item>
+        <item>Mexican aster</item>
+        <item>Bromelia</item>
+        <item>Blanket flower</item>
+        <item>Trumpet creeper</item>
+        <item>Blackberry lily</item>
+        <item>Common tulip</item>
+        <item>Wild rose</item>
+        <item>Buttercup</item>
+        <item>Oxeye daisy</item>
+        <item>English marigold</item>
+        <item>Fig</item>
+        <item>Hibiscus</item>
+        <item>Sunflower</item>
+        <item>Lotus</item>
+        <item>Poinsettia</item>
+        <item>Primrose</item>
+        <item>Cyclamen</item>
+        <item>Watercress</item>
+        <item>Canna lily</item>
+        <item>Hippeastrum</item>
+        <item>Bee balm</item>
+        <item>Ball moss</item>
+        <item>Foxglove</item>
+        <item>Bougainvillea</item>
+        <item>Camellia</item>
+        <item>Mallow</item>
+        <item>Mexican petunia</item>
+        <item>Bromelia</item>
+        <item>Blanket flower</item>
+        <item>Trumpet creeper</item>
+        <item>Blackberry lily</item>
+        <item>Common tulip</item>
+        <item>Barberton daisy</item>
+        <item>Water lily</item>
+        <item>Desert-rose</item>
+        <item>Tree mallow</item>
+        <item>Magnolia</item>
+        <item>Cyclamen</item>
+        <item>Watercress</item>
+        <item>Canna lily</item>
+        <item>Hippeastrum</item>
+        <item>Bee balm</item>
+        <item>Ball moss</item>
+        <item>Foxglove</item>
+        <item>Bougainvillea</item>
+        <item>Camellia</item>
+        <item>Mallow</item>
+        <item>Mexican petunia</item>
+        <item>Bromelia</item>
+        <item>Blanket flower</item>
+        <item>Trumpet creeper</item>
+        <item>Blackberry lily</item>
+        <item>Common tulip</item>
+        <item>Wild rose</item>
+        <item>Buttercup</item>
+    </string-array>
+    <string name="camera_permission_title">Camera</string>
+    <string name="camera_permission_rationale">Camera rationale</string>
+    <string name="read_media_images_permission_title">Read Media Images</string>
+    <string name="read_media_images_permission_rationale">Read media images rationale</string>
+    <string name="read_media_visual_user_selected_permission_title">Read Media Visual User Selected</string>
+    <string name="read_media_visual_user_selected_permission_rationale">Read media user selected rationale</string>
+    <string name="read_external_storage_permission_title">Read external storage</string>
+    <string name="read_external_storage_permission_rationale">Read external storage rationale</string>
 </resources>
