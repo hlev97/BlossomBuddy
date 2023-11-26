@@ -31,7 +31,9 @@ fun BlossomNavGraph(
                     navController.navigate(Destination.ClassificationResult.createRoute(imageId))
                 },
                 onPhotoPicked = homeViewModel::onPhotoPicked,
-                onHistoryItemClicked = { /* TODO */ },
+                onHistoryItemClicked = { imageId ->
+                    navController.navigate(Destination.ClassificationResult.createRoute(imageId.toLong()))
+                },
                 onPhotoPickedFailureEventCaptured = homeViewModel::onPhotoPickedFailureCaptured,
                 onShowCameraPermissionResultSnackBarCaptured = homeViewModel::onShowPermissionResultSnackbarCaptured,
                 state = homeUiState,
@@ -68,15 +70,6 @@ fun BlossomNavGraph(
                 onClassifyImageFailureCaptured = classificationResultViewModel::onClassifyImageFailureCaptured,
                 state = classificationResultUiState
             )
-        }
-        composable(
-            Destination.BlossomChat.route,
-            arguments = listOf(navArgument(Destination.BlossomChat.argName) { type = NavType.IntType })
-        ) {
-            // TODO: Blossom chat screen
-        }
-        composable(Destination.Settings.route) {
-            // TODO: Settings screen
         }
     }
 }

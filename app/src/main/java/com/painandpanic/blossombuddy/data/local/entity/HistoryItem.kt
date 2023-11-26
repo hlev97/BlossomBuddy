@@ -1,10 +1,8 @@
 package com.painandpanic.blossombuddy.data.local.entity
 
-import android.net.Uri
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.TypeConverter
 import java.time.LocalDateTime
 
 @Entity(tableName = "history")

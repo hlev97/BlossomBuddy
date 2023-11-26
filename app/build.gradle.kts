@@ -3,7 +3,6 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.ktorfit)
     alias(libs.plugins.kotlinx.serialization)
 }
 
@@ -74,12 +73,6 @@ dependencies {
     implementation(libs.camerax.camera2)
     implementation(libs.camerax.view)
     implementation(libs.camerax.lifecycle)
-
-    implementation(libs.ktor.client.serialization)
-    implementation(libs.ktor.client.content.negotiation)
-    implementation(libs.ktor.serializations.kotlinx.json)
-    implementation(libs.ktorfit)
-    ksp(libs.ktorfit.compiler)
 
     implementation(libs.koin.core)
     implementation(libs.koin.android)
