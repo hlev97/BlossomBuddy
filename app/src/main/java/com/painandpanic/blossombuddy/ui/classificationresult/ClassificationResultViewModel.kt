@@ -47,7 +47,7 @@ class ClassificationResultViewModel(
                 val result = vulkanMutex.withLock {
                     classifyImage(imageId)
                 }
-                saveToHistory(HistoryDomain(imageId, result.third, LocalDateTime.now()))
+                saveToHistory(HistoryDomain(imageId = imageId, predictedLabel =  result.third, timestamp = LocalDateTime.now()))
                 uiState.copy(
                     isLoading = false,
                     photoToClassify = result.first,

@@ -7,28 +7,7 @@
     <string-array name="flower_names">
         <item>Pink primrose</item>
         <item>Hard-leaved pocket orchid</item>
-        <item>Canary island date palm</item>
-        <item>Common dandelion</item>
-        <item>Bird of paradise</item>
-        <item>Monkshood</item>
-        <item>Globe thistle</item>
-        <item>Grape hyacinth</item>
-        <item>Corn poppy</item>
-        <item>Prince of wales feathers</item>
-        <item>Stemless gentian</item>
-        <item>Red ginger</item>
-        <item>Spring crocus</item>
-        <item>Orange dahlia</item>
-        <item>Pink-yellow dahlia</item>
-        <item>Cauliflower</item>
-        <item>Sweet william</item>
-        <item>Cactus</item>
-        <item>Big masterwort</item>
-        <item>Siam tulip</item>
-        <item>Lenten rose</item>
-        <item>Barbados aloe</item>
-        <item>Red hot poker</item>
-        <item>Artichoke</item>
+        <item>Canterbury bells</item>
         <item>Sweet pea</item>
         <item>English marigold</item>
         <item>Tiger lily</item>
@@ -36,56 +15,80 @@
         <item>Bird of paradise</item>
         <item>Monkshood</item>
         <item>Globe thistle</item>
+        <item>Snapdragon</item>
+        <item>Colt\'s foot</item>
+        <item>King protea</item>
+        <item>Spear thistle</item>
+        <item>Yellow iris</item>
+        <item>Globe-flower</item>
+        <item>Purple coneflower</item>
+        <item>Peruvian lily</item>
+        <item>Balloon flower</item>
+        <item>Giant white arum lily</item>
+        <item>Fire lily</item>
+        <item>Pincushion flower</item>
+        <item>Fritillary</item>
+        <item>Red ginger</item>
         <item>Grape hyacinth</item>
+        <item>Corn poppy</item>
+        <item>Prince of wales feathers</item>
+        <item>Stemless gentian</item>
+        <item>Artichoke</item>
+        <item>Sweet william</item>
+        <item>Carnation</item>
+        <item>Garden phlox</item>
+        <item>Love in the mist</item>
+        <item>Mexican aster</item>
+        <item>Alpine sea holly</item>
+        <item>Ruby-lipped cattleya</item>
+        <item>Cape flower</item>
+        <item>Great masterwort</item>
+        <item>Siam tulip</item>
+        <item>Lenten rose</item>
+        <item>Barbeton daisy</item>
+        <item>Daffodil</item>
+        <item>Sword lily</item>
+        <item>Poinsettia</item>
+        <item>Bolero deep blue</item>
+        <item>Wallflower</item>
+        <item>Marigold</item>
+        <item>Buttercup</item>
+        <item>Oxeye daisy</item>
+        <item>Common dandelion</item>
+        <item>Petunia</item>
         <item>Wild pansy</item>
         <item>Primula</item>
         <item>Sunflower</item>
         <item>Pelargonium</item>
         <item>Bishop of llandaff</item>
         <item>Gaura</item>
-        <item>Gazania</item>
         <item>Geranium</item>
         <item>Orange dahlia</item>
-        <item>Pink-yellow dahlia</item>
-        <item>Fritillary</item>
-        <item>Common dandelion</item>
-        <item>Pincushion flower</item>
-        <item>Fuchsia</item>
-        <item>Mallow</item>
-        <item>Mexican aster</item>
-        <item>Bromelia</item>
-        <item>Blanket flower</item>
-        <item>Trumpet creeper</item>
-        <item>Blackberry lily</item>
-        <item>Common tulip</item>
-        <item>Wild rose</item>
-        <item>Buttercup</item>
-        <item>Oxeye daisy</item>
-        <item>English marigold</item>
-        <item>Fig</item>
-        <item>Hibiscus</item>
-        <item>Sunflower</item>
-        <item>Lotus</item>
-        <item>Poinsettia</item>
-        <item>Primrose</item>
-        <item>Cyclamen</item>
-        <item>Watercress</item>
-        <item>Canna lily</item>
-        <item>Hippeastrum</item>
-        <item>Bee balm</item>
-        <item>Ball moss</item>
-        <item>Foxglove</item>
-        <item>Bougainvillea</item>
-        <item>Camellia</item>
-        <item>Mallow</item>
-        <item>Mexican petunia</item>
-        <item>Bromelia</item>
-        <item>Blanket flower</item>
-        <item>Trumpet creeper</item>
-        <item>Blackberry lily</item>
-        <item>Common tulip</item>
-        <item>Barberton daisy</item>
+        <item>Pink-yellow dahlia?</item>
+        <item>Cautleya spicata</item>
+        <item>Japanese anemone</item>
+        <item>Black-eyed susan</item>
+        <item>Silverbush</item>
+        <item>Californian poppy</item>
+        <item>Osteospermum</item>
+        <item>Spring crocus</item>
+        <item>Bearded iris</item>
+        <item>Windflower</item>
+        <item>Tree poppy</item>
+        <item>Gazania</item>
+        <item>Azalea</item>
         <item>Water lily</item>
+        <item>Rose</item>
+        <item>Thorn apple</item>
+        <item>Morning glory</item>
+        <item>Passion flower</item>
+        <item>Lotus</item>
+        <item>Toad lily</item>
+        <item>Anthurium</item>
+        <item>Frangipani</item>
+        <item>Clematis</item>
+        <item>Hibiscus</item>
+        <item>Columbine</item>
         <item>Desert-rose</item>
         <item>Tree mallow</item>
         <item>Magnolia</item>
@@ -104,9 +107,6 @@
         <item>Blanket flower</item>
         <item>Trumpet creeper</item>
         <item>Blackberry lily</item>
-        <item>Common tulip</item>
-        <item>Wild rose</item>
-        <item>Buttercup</item>
     </string-array>
     <string name="camera_permission_title">Camera</string>
     <string name="camera_permission_rationale">Camera rationale</string>

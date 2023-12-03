@@ -14,6 +14,17 @@ class LoadHistoryUseCase(
         dao.getHistoryItems().first().map { it.toDomain() }.map {
             HistoryUi(
                 image = loadImageFromGalleryUseCase(it.id),
+                imageID = it.imageId,
+                label = it.predictedLabel,
+                timestamp = LocalDateTimeConverter().fromLocalDateTime(it.timestamp)
+            )
+        }
+
+    suspend operator fun invoke(id: Long): HistoryUi =
+        dao.getHistoryItem(id).first().toDomain().let {
+            HistoryUi(
+                image = loadImageFromGalleryUseCase(it.id),
+                imageID = it.imageId,
                 label = it.predictedLabel,
                 timestamp = LocalDateTimeConverter().fromLocalDateTime(it.timestamp)
             )

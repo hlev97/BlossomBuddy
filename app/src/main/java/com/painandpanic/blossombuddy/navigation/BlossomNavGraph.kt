@@ -13,6 +13,8 @@ import com.painandpanic.blossombuddy.ui.camera.CameraScreen
 import com.painandpanic.blossombuddy.ui.camera.CameraViewModel
 import com.painandpanic.blossombuddy.ui.classificationresult.ClassificationResult
 import com.painandpanic.blossombuddy.ui.classificationresult.ClassificationResultViewModel
+import com.painandpanic.blossombuddy.ui.history.HistoryItem
+import com.painandpanic.blossombuddy.ui.history.HistoryItemViewModel
 import com.painandpanic.blossombuddy.ui.home.HomeScreen
 import com.painandpanic.blossombuddy.ui.home.HomeViewModel
 import org.koin.androidx.compose.koinViewModel
@@ -31,8 +33,8 @@ fun BlossomNavGraph(
                     navController.navigate(Destination.ClassificationResult.createRoute(imageId))
                 },
                 onPhotoPicked = homeViewModel::onPhotoPicked,
-                onHistoryItemClicked = { imageId ->
-                    navController.navigate(Destination.ClassificationResult.createRoute(imageId.toLong()))
+                onHistoryItemClicked = { id ->
+                    navController.navigate(Destination.HistoryItem.createRoute(id))
                 },
                 onPhotoPickedFailureEventCaptured = homeViewModel::onPhotoPickedFailureCaptured,
                 onShowCameraPermissionResultSnackBarCaptured = homeViewModel::onShowPermissionResultSnackbarCaptured,
@@ -53,6 +55,11 @@ fun BlossomNavGraph(
                 },
                 onPhotoCaptured = cameraViewModel::onPhotoCaptured,
                 onPreviewedPhotoClicked = cameraViewModel::onCapturePhotoPreviewed,
+                onNavigateHome = {
+                    navController.popBackStack(Destination.Home.route, inclusive = true)
+                    navController.navigate(Destination.Home.route)
+                    cameraViewModel.onPhotoSavedSuccesfully()
+                },
                 state = cameraUiState
             )
         }
@@ -68,6 +75,21 @@ fun BlossomNavGraph(
                     navController.navigate(Destination.Home.route)
                  },
                 onClassifyImageFailureCaptured = classificationResultViewModel::onClassifyImageFailureCaptured,
+                state = classificationResultUiState
+            )
+        }
+        composable(
+            Destination.HistoryItem.route,
+            arguments = listOf(navArgument(Destination.HistoryItem.argName) { type = NavType.IntType })
+        ) {
+            val historyItemViewModel = koinViewModel<HistoryItemViewModel>()
+            val classificationResultUiState by historyItemViewModel.uiStateStream.collectAsState()
+            HistoryItem(
+                onBack = {
+                    navController.popBackStack(Destination.Home.route, inclusive = true)
+                    navController.navigate(Destination.Home.route)
+                },
+                onLoadFailureCaptured = historyItemViewModel::onLoadFailureCaptured,
                 state = classificationResultUiState
             )
         }

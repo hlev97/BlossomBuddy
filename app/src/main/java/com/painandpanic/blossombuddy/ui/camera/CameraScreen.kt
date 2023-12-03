@@ -7,6 +7,7 @@ import android.widget.LinearLayout
 import androidx.camera.view.LifecycleCameraController
 import androidx.camera.view.PreviewView
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
@@ -27,6 +28,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material.icons.filled.Save
 import androidx.compose.material.icons.outlined.CameraAlt
 import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material3.Card
@@ -38,7 +41,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -51,11 +56,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.LifecycleOwner
+import com.painandpanic.blossombuddy.util.events.EventEffect
 
 @Composable
 fun CameraScreen(
     onBack: () -> Unit,
     onPhotoCaptured: (LifecycleCameraController) -> Unit,
+    onNavigateHome: () -> Unit,
     onPreviewedPhotoClicked: () -> Unit,
     state: CameraViewState
 ) {
@@ -65,6 +72,10 @@ fun CameraScreen(
     val cameraController: LifecycleCameraController = remember { LifecycleCameraController(context) }
 
     val lastCapturedPhoto = state.lastCapturePhoto
+
+    EventEffect(event = state.savePhotoSuccess) {
+        onNavigateHome()
+    }
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -98,7 +109,7 @@ fun CameraScreen(
             )
 
             AnimatedVisibility (
-                visible = lastCapturedPhoto != null,
+                visible = state.isPreviewDisplayed,
                 modifier = Modifier.align(Alignment.BottomStart),
                 enter = fadeIn() + slideInHorizontally { width -> -width },
                 exit = fadeOut() + slideOutHorizontally { width -> width }
@@ -143,6 +154,8 @@ fun LastCapturedPhotoPreview(
     onClick: () -> Unit
 ) {
     val capturedPhoto: ImageBitmap = remember(lastCapturedPhoto.hashCode()) { lastCapturedPhoto.asImageBitmap() }
+    var isPressed by remember { mutableStateOf(false) }
+    val alpha by animateFloatAsState(targetValue = if (isPressed) 0.5f else 1f, label = "")
     Card(
         modifier = modifier
             .size(128.dp)
@@ -152,11 +165,19 @@ fun LastCapturedPhotoPreview(
         elevation = CardDefaults.elevatedCardElevation(),
         shape = MaterialTheme.shapes.large,
     ) {
-        Image(
-            bitmap = capturedPhoto,
-            contentDescription = "Last captured photo",
-            contentScale = androidx.compose.ui.layout.ContentScale.Crop
-        )
+        Box(contentAlignment = Alignment.Center) {
+            Image(
+                bitmap = capturedPhoto,
+                contentDescription = "Last captured photo",
+                contentScale = androidx.compose.ui.layout.ContentScale.Crop
+            )
+
+            Icon(
+                imageVector = Icons.Default.Save,
+                contentDescription = "Save",
+                tint = MaterialTheme.colorScheme.primaryContainer.copy(alpha = alpha),
+            )
+        }
     }
 }
 
@@ -167,6 +188,7 @@ fun CameraScreen_Preview() {
         onBack = {},
         onPhotoCaptured = {},
         onPreviewedPhotoClicked = {},
+        onNavigateHome = {} ,
         state = CameraViewState()
     )
 }

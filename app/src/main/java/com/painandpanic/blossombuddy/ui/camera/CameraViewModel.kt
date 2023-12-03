@@ -8,6 +8,7 @@ import com.painandpanic.blossombuddy.domain.usecase.SavePhotoToGalleryUseCase
 import com.painandpanic.blossombuddy.domain.usecase.TakePhotoUseCase
 import com.painandpanic.blossombuddy.util.events.BasicStateEvent
 import com.painandpanic.blossombuddy.util.events.StateEventWithContent
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -30,33 +31,45 @@ class CameraViewModel(
     fun onPhotoCaptured(cameraController: LifecycleCameraController) {
         takePhoto(
             cameraController = cameraController,
-            onPhotoCapturedSuccess = { savePhoto(it) },
+            onPhotoCapturedSuccess = { bitmap ->
+                uiState.lastCapturePhoto?.recycle()
+                uiState = uiState.copy(
+                    isPreviewDisplayed = true,
+                    lastCapturePhoto = bitmap
+                )
+            },
             onPhotoCapturedFailure = { uiState = uiState.copy(savePhotoFailure = BasicStateEvent.Triggered) }
         )
     }
 
-    private fun savePhoto(bitmap: Bitmap) {
+    fun onCapturePhotoPreviewed() {
         try {
             viewModelScope.launch {
-                savePhotoToGallery(bitmap)
+                savePhotoToGallery(uiState.lastCapturePhoto!!)
                 uiState.lastCapturePhoto?.recycle()
-                uiState = uiState.copy(lastCapturePhoto = bitmap)
+                uiState = uiState.copy(isPreviewDisplayed = false)
+                delay(100)
+                uiState = uiState.copy(
+                    lastCapturePhoto = null,
+                    savePhotoSuccess = BasicStateEvent.Triggered
+                )
             }
         } catch (e: Exception) {
-            uiState = uiState.copy(savePhotoFailure = BasicStateEvent.Triggered)
+            uiState = uiState.copy(
+                lastCapturePhoto = null,
+                savePhotoFailure = BasicStateEvent.Triggered
+            )
         }
     }
 
-    fun onCapturePhotoPreviewed() {
-        uiState.lastCapturePhoto?.recycle()
-        uiState = uiState.copy(lastCapturePhoto = null)
-        viewModelScope.launch {
-            savePhotoToGallery(uiState.lastCapturePhoto!!)
-        }
+    fun onPhotoSavedSuccesfully() {
+        uiState = uiState.copy(savePhotoSuccess = BasicStateEvent.Captured)
     }
 }
 
 data class CameraViewState(
     val lastCapturePhoto: Bitmap? = null,
+    val isPreviewDisplayed: Boolean = false,
+    val savePhotoSuccess: BasicStateEvent = BasicStateEvent.Captured,
     val savePhotoFailure: BasicStateEvent = BasicStateEvent.Captured,
 )

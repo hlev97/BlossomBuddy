@@ -1,11 +1,11 @@
 package com.painandpanic.blossombuddy.domain.model
 
-import android.net.Uri
 import com.painandpanic.blossombuddy.data.local.entity.HistoryEntity
 import java.time.LocalDateTime
 
 data class HistoryDomain(
-    val id: Long,
+    val id: Long = 0,
+    val imageId: Long,
     val predictedLabel: String,
     val timestamp: LocalDateTime,
 )
@@ -13,11 +13,13 @@ data class HistoryDomain(
 fun HistoryDomain.toEntity() = HistoryEntity(
     id = id,
     predictedLabel = predictedLabel,
+    imageId = imageId,
     timestamp = timestamp,
 )
 
 fun HistoryEntity.toDomain() = HistoryDomain(
     id = id,
+    imageId = imageId,
     predictedLabel = predictedLabel,
     timestamp = timestamp,
 )

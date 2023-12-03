@@ -10,6 +10,7 @@ import com.painandpanic.blossombuddy.domain.usecase.SaveToHistoryUseCase
 import com.painandpanic.blossombuddy.domain.usecase.TakePhotoUseCase
 import com.painandpanic.blossombuddy.ui.camera.CameraViewModel
 import com.painandpanic.blossombuddy.ui.classificationresult.ClassificationResultViewModel
+import com.painandpanic.blossombuddy.ui.history.HistoryItemViewModel
 import com.painandpanic.blossombuddy.ui.home.HomeViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -28,6 +29,8 @@ val viewModelModule = module {
     viewModel { HomeViewModel(get()) }
     viewModel { CameraViewModel(get(),get()) }
     viewModel { ClassificationResultViewModel(get(),get(),get()) }
+    viewModel { HistoryItemViewModel(get(),get()) }
+
 }
 
 val roomModule = module {

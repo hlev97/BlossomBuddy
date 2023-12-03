@@ -202,7 +202,7 @@ fun HomeScreen(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .clickable(
-                                        onClick = { onHistoryItemClicked(state.history.indexOf(item)) }
+                                        onClick = { onHistoryItemClicked(state.history.indexOf(item)+1) }
                                     )
                                     .padding(8.dp),
                                 leadingContent = {

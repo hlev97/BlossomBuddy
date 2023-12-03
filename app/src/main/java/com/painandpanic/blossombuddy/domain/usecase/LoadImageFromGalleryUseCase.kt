@@ -16,7 +16,7 @@ class LoadImageFromGalleryUseCase(
 ) {
 
     suspend operator fun invoke(id: Long): Bitmap {
-        val imageId = dao.getHistoryItem(id).first().id
+        val imageId = dao.getHistoryItem(id).first().imageId
         val contentUri: Uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
         val uri: Uri = ContentUris.withAppendedId(contentUri, imageId)
         return if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {

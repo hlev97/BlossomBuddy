@@ -7,7 +7,8 @@ import java.time.LocalDateTime
 
 @Entity(tableName = "history")
 data class HistoryEntity(
-    @PrimaryKey(autoGenerate = false) val id: Long,
+    @PrimaryKey(autoGenerate = true) val id: Long,
+    @ColumnInfo(name = "image_uri") val imageId: Long,
     @ColumnInfo(name = "predicted_label") val predictedLabel: String,
     @ColumnInfo(name = "timestamp") val timestamp: LocalDateTime,
 )
